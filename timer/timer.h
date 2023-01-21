@@ -2,6 +2,7 @@
 
 class Timer{
   public:
+    Timer();
     Timer(int sampleTime);
     ~Timer();
 

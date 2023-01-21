@@ -1,5 +1,12 @@
 #include "timer.h"
 
+Timer::Timer(){
+  _sampleTime   = 1;
+  _currentTime  = 0;
+  _previousTime = 0;
+  _elapsedTime  = 0;
+}
+
 Timer::Timer(int sampleTime){
   _sampleTime   = sampleTime;
   _currentTime  = 0;
