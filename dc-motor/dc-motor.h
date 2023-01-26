@@ -1,14 +1,18 @@
+#include<Arduino.h>
+
 class DCMotor{
   public:
     DCMotor(int motorPinA, int motorPinB);
-    DCMotor(int motorPinA, int motorPinB), int minSignal;
+    DCMotor(int motorPinA, int motorPinB, int minSignal);
     ~DCMotor();
 
     //************************* Getters
     int getMinSignal();
+    int getSignal();
 
     //************************* Setters
     void setMinSignal(int minSignal);
+    void setTurn(int turn);
 
     //************************* Methods
     void forward();
@@ -16,7 +20,8 @@ class DCMotor{
     void backward();
     void backward(int signal);
     void stop();
-    void toString();
+    String toString();
+    String jsonString();
 
 
   private:
@@ -24,6 +29,17 @@ class DCMotor{
     int _motorPinB;
     int _signal;
     int _minSignal;
+    String _turn;
+    
+    enum movement{
+      STOP,
+      CLOCKWISE,
+      COUNTER_CLOCKWISE
+    };
+
+    void verifySignal();
+
+
     
     //TODO: Include physical model values
     
